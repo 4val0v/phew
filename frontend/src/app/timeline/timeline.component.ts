@@ -1,4 +1,6 @@
+import { Post } from './../model/post';
 import { Component, OnInit } from '@angular/core';
+import { TimelineService } from './timeline.service';
 
 @Component({
   selector: 'app-timeline',
@@ -8,11 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class TimelineComponent implements OnInit {
 
   name: String;
+  posts: Post[];
 
-  constructor() { }
+  constructor(
+    private timelineService: TimelineService,
+  ) { }
 
   ngOnInit() {
     this.name = 'sampleName';
+    this.getPosts();
   }
 
+  getPosts() {
+    this.timelineService.getPosts().subscribe(posts => this.posts = posts);
+  }
 }

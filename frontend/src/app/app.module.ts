@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { SettingComponent } from './setting/setting.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SettingComponent } from './setting/setting.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
+    HttpClientModule,
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     MatToolbarModule,
