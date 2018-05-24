@@ -9,17 +9,8 @@ import java.util.UUID;
 @Entity(name = "USER")
 public class UserEntity extends CommonEntity {
 
-  protected UserEntity() {
-  }
-
-  public  UserEntity(String name, String email, String password) {
-    this.name = name;
-    this.email = email;
-    this.password = password;
-  }
-
   @Id
-  public String id;
+  public String userId;
 
   @Column(nullable = false)
   public String name;
@@ -30,9 +21,18 @@ public class UserEntity extends CommonEntity {
   @Column(nullable = false)
   public String password;
 
+  protected UserEntity() {
+  }
+
+  public UserEntity(String name, String email, String password) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+  }
+
   @Override
-  protected void PrePersist() {
-    super.PrePersist();
-    id = UUID.randomUUID().toString();
+  protected void prePersist() {
+    super.prePersist();
+    userId = UUID.randomUUID().toString();
   }
 }
