@@ -21,7 +21,7 @@ import java.util.List;
 public class UsersController {
 
   @Autowired
-  private UserService service;
+  UserService service;
 
   @GetMapping
   public List<UserEntity> findAll() {
@@ -30,19 +30,19 @@ public class UsersController {
 
   @PostMapping
   public UserEntity create(
-      @RequestBody UserRequestBody requestBody) {
+    @RequestBody UserRequestBody requestBody) {
 
     UserEntity entity = new UserEntity(
-        requestBody.name,
-        requestBody.email,
-        requestBody.password);
+      requestBody.name,
+      requestBody.email,
+      requestBody.password);
     return service.save(entity);
   }
 
   @PutMapping("/{userId}")
   public UserEntity create(
-      @NotBlank @Valid @PathVariable("userId") String userId,
-      @RequestBody UserRequestBody requestBody) throws Exception {
+    @NotBlank @Valid @PathVariable("userId") String userId,
+    @RequestBody UserRequestBody requestBody) throws Exception {
 
     UserEntity entity = service.findById(userId).orElseThrow(Exception::new);
     entity.name = requestBody.name;
