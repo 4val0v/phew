@@ -11,6 +11,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { SettingComponent } from './setting/setting.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavigationComponent,
     TimelineComponent,
     SettingComponent,
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -28,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [

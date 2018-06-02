@@ -16,7 +16,7 @@ export class TimelineService {
     const header: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8'
     });
-    
+
     return this.http.get<Post[]>('http://localhost:8080/posts', { headers: header });
   }
 }
