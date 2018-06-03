@@ -13,13 +13,15 @@ public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests().antMatchers("/posts/**", "/", "/login", "/home", "/user").permitAll()
+    http.authorizeRequests()
+        .antMatchers("/login").permitAll()
         .anyRequest().authenticated()
+        .and().formLogin()
         .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
   }
 
   @Override
   public void configure(WebSecurity web) throws Exception {
-    web.ignoring().antMatchers("/h2-console/**");
+    web.ignoring().antMatchers("/h2-console/**", "/static/**", "/*.ico");
   }
 }
