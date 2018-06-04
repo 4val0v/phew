@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,8 @@ public class PostsController {
   UserService userService;
 
   @GetMapping
-  public List<PostEntity> findAll() {
+  public List<PostEntity> findAll(Principal principal) {
+    System.out.println(principal.getName());
     return service.findAll();
   }
 

@@ -24,6 +24,22 @@ public class Initializer implements InitializingBean {
 
     userService.save(userEntity);
 
+    UserEntity userEntity2 = new UserEntity(
+        "user",
+        "example@email.com",
+        "user"
+    );
+
+    userService.save(userEntity2);
+
+    UserEntity userEntity3 = new UserEntity(
+        "user2",
+        "example@email.com",
+        "user2"
+    );
+
+    userService.save(userEntity3);
+
     PostEntity postEntity = new PostEntity(
       "first post!!",
       userEntity
