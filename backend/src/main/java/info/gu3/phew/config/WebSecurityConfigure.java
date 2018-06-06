@@ -16,11 +16,14 @@ public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
+    http.formLogin().loginProcessingUrl("/login").usernameParameter("username")
+      .passwordParameter("password");
+
     http.authorizeRequests()
-        .antMatchers("/login").permitAll()
-        .anyRequest().authenticated()
-        .and().formLogin()
-        .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+      .antMatchers("/login").permitAll()
+      .anyRequest().authenticated();
+
+    http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
   }
 
   @Override
