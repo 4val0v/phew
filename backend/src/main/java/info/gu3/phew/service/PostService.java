@@ -1,6 +1,7 @@
 package info.gu3.phew.service;
 
 import info.gu3.phew.entity.PostEntity;
+import info.gu3.phew.entity.UserEntity;
 import info.gu3.phew.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,10 @@ public class PostService {
 
   public List<PostEntity> findAll() {
     return repository.findAll();
+  }
+
+  public List<PostEntity> findByUser(UserEntity userEntity) {
+    return repository.findByUser(userEntity);
   }
 
   public PostEntity save(PostEntity entity) {
