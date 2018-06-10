@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/posts")
-public class PostsController {
+@RequestMapping("/post")
+public class PostController {
 
   @Autowired
   PostService service;
@@ -24,8 +23,7 @@ public class PostsController {
   UserService userService;
 
   @GetMapping
-  public List<PostEntity> findAll(Principal principal) {
-    System.out.println(principal.getName());
+  public List<PostEntity> findAll() {
     return service.findAll();
   }
 
@@ -35,7 +33,7 @@ public class PostsController {
 
     PostEntity entity = new PostEntity(
       requestBody.content,
-      userService.findById(requestBody.userId).orElseThrow(Exception::new)
+      userService.findById(requestBody.userId).orElseThrow(() -> new Exception("User Not Found."))
     );
     return service.save(entity);
   }

@@ -43,7 +43,7 @@ public class UserService implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    UserEntity userEntity = repository.findByName(username).orElse(null);
+    UserEntity userEntity = this.findByName(username).orElse(null);
     User user = new User(userEntity.name, userEntity.password, AuthorityUtils.createAuthorityList("ROLE_ADMIN"));
     return user;
   }

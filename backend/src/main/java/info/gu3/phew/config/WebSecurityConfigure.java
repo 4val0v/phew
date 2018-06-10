@@ -10,13 +10,14 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.formLogin().loginProcessingUrl("/login").usernameParameter("username")
+    http.formLogin().loginProcessingUrl("/login")
+      .usernameParameter("username")
       .passwordParameter("password");
 
     http.authorizeRequests()
