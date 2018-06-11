@@ -5,6 +5,7 @@ import info.gu3.phew.request.PostRequestBody;
 import info.gu3.phew.service.PostService;
 import info.gu3.phew.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,5 +43,10 @@ public class PostController {
       userService.findById(requestBody.userId).orElseThrow(() -> new Exception("User Not Found."))
     );
     return service.save(entity);
+  }
+
+  @DeleteMapping("/{postId}")
+  public void delete(@PathVariable("postId") String postId) {
+    service.delete(postId);
   }
 }

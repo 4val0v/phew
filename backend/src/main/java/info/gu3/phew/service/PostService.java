@@ -27,4 +27,8 @@ public class PostService {
   public PostEntity save(PostEntity entity) {
     return repository.save(entity);
   }
+
+  public void delete(String postId) {
+    repository.deleteById(postId);
+  }
 }

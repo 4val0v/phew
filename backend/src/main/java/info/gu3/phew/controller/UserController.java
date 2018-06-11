@@ -31,6 +31,11 @@ public class UserController {
     return service.findAll();
   }
 
+  @GetMapping("/{userId}")
+  public UserEntity find(@PathVariable("userId") String userId) throws Exception {
+    return service.findById(userId).orElseThrow(() -> new Exception("User Not Found."));
+  }
+
   @PostMapping
   public UserEntity create(
     @RequestBody UserRequestBody requestBody) {
