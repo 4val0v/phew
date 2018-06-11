@@ -8,9 +8,9 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ApiAccessLogingInterceptor extends HandlerInterceptorAdapter {
+public class ApiAccessLoggingInterceptor extends HandlerInterceptorAdapter {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(ApiAccessLogingInterceptor.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(ApiAccessLoggingInterceptor.class);
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

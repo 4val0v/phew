@@ -16,11 +16,11 @@ public class WebMvcConfigure implements WebMvcConfigurer {
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
-    registry.addInterceptor(apiAccessLogingInterceptor());
+    registry.addInterceptor(apiAccessLoggingInterceptor());
   }
 
   @Bean
-  public ApiAccessLogingInterceptor apiAccessLogingInterceptor() {
-    return new ApiAccessLogingInterceptor();
+  public ApiAccessLoggingInterceptor apiAccessLoggingInterceptor() {
+    return new ApiAccessLoggingInterceptor();
   }
 }
